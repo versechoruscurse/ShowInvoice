@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="SampleData\SampleInvoices.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="SampleData\SampleInvoices.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\POCOs\Common.csproj" />
+  </ItemGroup>
+
+
+</Project>
