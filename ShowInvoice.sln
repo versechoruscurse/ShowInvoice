@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowInvoice", "ShowInvoice\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceService", "InvoiceService\InvoiceService.csproj", "{2728BB73-CC74-475F-80FA-DDB0CCBCCE89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "POCOs\Common.csproj", "{4F4569C7-0260-4768-A31D-DEB613C45251}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{4F4569C7-0260-4768-A31D-DEB613C45251}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
