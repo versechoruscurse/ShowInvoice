@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 
@@ -19,25 +18,25 @@ namespace ShowInvoice
             {
                 Console.WriteLine(
                     String.Join("\r\n",
-                        invoice.name,
-                        invoice.addressLine1,
-                        invoice.addressLine2,
-                        invoice.addressLine3,
-                        invoice.county,
-                        invoice.postcode,
-                        invoice.country
+                        invoice.Name,
+                        invoice.AddressLine1,
+                        invoice.AddressLine2,
+                        invoice.AddressLine3,
+                        invoice.County,
+                        invoice.Postcode,
+                        invoice.Country
                    )
                 );
                 Console.WriteLine(); // Separate line for visibility
-                Console.WriteLine("{0,36}", String.Format("Date: {0:d}", invoice.invoiceDate));
-                Console.WriteLine("Invoice Data for {0}", invoice.name);
-                Console.WriteLine("Prepared by operator: {0}\r\n", invoice.user);
+                Console.WriteLine("{0,36}", String.Format("Date: {0:d}", invoice.InvoiceDate));
+                Console.WriteLine("Invoice Data for {0}", invoice.Name);
+                Console.WriteLine("Prepared by operator: {0}\r\n", invoice.User);
 
                 Console.WriteLine(String.Format("{0,-26}{1,10}", "Description", "Amount"));
                 Console.WriteLine(String.Format("{0,-26}{1,10}", "===========", "======"));
-                foreach (var invoiceLine in invoice.invoiceLines)
+                foreach (var invoiceLine in invoice.InvoiceLines)
                 {
-                    Console.WriteLine("{0,-26}{1,10}", invoiceLine.description, invoiceLine.amount);
+                    Console.WriteLine("{0,-26}{1,10}", invoiceLine.Description, invoiceLine.Amount);
                 }
                 Console.WriteLine(String.Format("\r\n{0,24}{1,12:C}", "Total:", invoice.InvoiceTotal));
                 Console.WriteLine();
@@ -46,12 +45,18 @@ namespace ShowInvoice
 
         private static Invoice[] GetData()
         {
+            JsonSerializerOptions jso = new JsonSerializerOptions()
+            {
+                AllowTrailingCommas = true,
+                PropertyNameCaseInsensitive = true
+            };
+
             try
             {
                 using (WebClient wc = new WebClient())
                 {
                     string result = wc.DownloadString(_WEB_SERVICE_URI);
-                    return JsonSerializer.Deserialize<Invoice[]>(result);
+                    return JsonSerializer.Deserialize<Invoice[]>(result, jso);
                 }
             }
             catch (WebException we)

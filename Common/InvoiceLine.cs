@@ -2,14 +2,14 @@
 {
     public class InvoiceLine
     {
-        public string description { get; set; }
-        public decimal amount { get; set; }
+        public string Description { get; set; }
+        public decimal Amount { get; set; }
 
         public InvoiceLine() { }
         public InvoiceLine(string Description, decimal Amount)
         {
-            this.description = Description;
-            this.amount = Amount;
+            this.Description = Description;
+            this.Amount = Amount;
         }
     }
 }

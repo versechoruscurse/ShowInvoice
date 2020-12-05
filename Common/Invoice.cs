@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Common
 {
@@ -9,16 +6,16 @@ namespace Common
     {
         private string _postcode;
 
-        public DateTime invoiceDate { get; set; }
-        public ulong invoiceNumber { get; set; }
-        public string user { get; set; }
+        public DateTime InvoiceDate { get; set; }
+        public ulong InvoiceNumber { get; set; }
+        public string User { get; set; }
 
-        public string name { get; set; }
-        public string addressLine1 { get; set; }
-        public string addressLine2 { get; set; }
-        public string addressLine3 { get; set; }
-        public string county { get; set; }
-        public string postcode
+        public string Name { get; set; }
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string AddressLine3 { get; set; }
+        public string County { get; set; }
+        public string Postcode
         {
             get
             {
@@ -29,8 +26,8 @@ namespace Common
                 _postcode = value.ToUpper();
             }
         }
-        public string country { get; set; }
-        public InvoiceLine[] invoiceLines { get; set; }
+        public string Country { get; set; }
+        public InvoiceLine[] InvoiceLines { get; set; }
 
         public Invoice() { }
 
@@ -48,27 +45,27 @@ namespace Common
             InvoiceLine[] InvoiceLines
             )
         {
-            this.invoiceDate = InvoiceDate;
-            this.invoiceNumber = InvoiceNumber;
-            this.user = User;
-            this.name = Name;
-            this.addressLine1 = AddressLine1;
-            this.addressLine2 = AddressLine2;
-            this.addressLine3 = AddressLine3;
-            this.county = County;
-            this.postcode = Postcode;
-            this.country = Country;
-            this.invoiceLines = InvoiceLines;
+            this.InvoiceDate = InvoiceDate;
+            this.InvoiceNumber = InvoiceNumber;
+            this.User = User;
+            this.Name = Name;
+            this.AddressLine1 = AddressLine1;
+            this.AddressLine2 = AddressLine2;
+            this.AddressLine3 = AddressLine3;
+            this.County = County;
+            this.Postcode = Postcode;
+            this.Country = Country;
+            this.InvoiceLines = InvoiceLines;
         }
 
-        public Decimal InvoiceTotal
+        public decimal InvoiceTotal
         {
             get
             {
                 decimal sum = 0;
-                foreach (var invoiceLine in invoiceLines)
+                foreach (var invoiceLine in InvoiceLines)
                 {
-                    sum += invoiceLine.amount;
+                    sum += invoiceLine.Amount;
                 }
                 return sum;
             }
